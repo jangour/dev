@@ -9,7 +9,7 @@ pipeline {
 
         stage('Build Backend') {
             steps {
-                dir('DevOps_Project'){
+                dir('back'){
                 sh 'mvn clean package'
             }
         }
@@ -19,7 +19,7 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 script {
-                    dir('DevOps_Project_Front') {
+                    dir('front') {
                         
                         sh 'npm install'
                         sh 'ng build --prod'
@@ -31,7 +31,7 @@ pipeline {
         stage('Code Analysis') {
             steps {
                 script {
-                    dir('DevOps_Project'){
+                    dir('back'){
                     def scannerHome = tool name: 'SonarQubeScanner', type: 'Tool'
                     withSonarQubeEnv('SonarQube') {
                         sh "${scannerHome}/bin/sonar-scanner"
@@ -52,7 +52,7 @@ pipeline {
 
         stage('Deploy to Nexus') {
             steps {
-                dir('DevOps_Project'){
+                dir('back'){
                 sh 'mvn deploy -DskipTests'
                     }        
                 }
