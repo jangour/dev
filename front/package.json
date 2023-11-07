@@ -29,9 +29,9 @@
     "zone.js": "~0.13.0"
   },
   "optionalDependencies": {
-  "@esbuild/darwin-arm64": "0.18.17",
-  "@esbuild/win32-x64": "0.18.17",
-},
+    "@esbuild/darwin-arm64": "0.18.17",
+    "@esbuild/win32-x64": "0.18.17",
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.1.2",
     "@angular/cli": "~16.1.2",
