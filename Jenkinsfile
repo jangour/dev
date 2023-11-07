@@ -42,13 +42,13 @@ pipeline {
         }
 
 
-<!        stage('Unit Tests') {
-            steps {
+//        stage('Unit Tests') {
+ //           steps {
                 
-                sh "mvn test"
-            }
-        }
-!>
+   //             sh "mvn test"
+   //         }
+   //     }
+
 
         stage('Deploy to Nexus') {
             steps {
