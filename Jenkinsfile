@@ -16,17 +16,17 @@ pipeline {
         }
 
 
-        stage('Build Frontend') {
-            steps {
-                script {
-                    dir('front') {
+    //    stage('Build Frontend') {
+     //       steps {
+        //        script {
+          //          dir('front') {
                         
-                        sh 'npm install'
-                        sh 'ng build --prod'
-                    }
-                }
-            }
-        }
+           //             sh 'npm install'
+           //             sh 'ng build --prod'
+          //          }
+          //      }
+        //    }
+     //   }
 
         stage('Code Analysis') {
             steps {
