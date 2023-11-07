@@ -64,11 +64,11 @@ pipeline {
                 script {
                     
                     // Build and tag the Spring Boot backend image
-                    sh "docker build -t your-dockerhub-username/back:latest -f Dockerfile ."
-                    sh "docker push your-dockerhub-username/back:latest"
+                    sh "docker build -t dockerhubN/back:latest -f /back/Dockerfile ."
+                    sh "docker push dockerhubN/back:latest"
                     
                     // Build and tag the Angular frontend image
-                    sh "docker build -t dockerhubN/front:latest -f Dockerfile ."
+                    sh "docker build -t dockerhubN/front:latest -f /front/Dockerfile ."
                     sh "docker push dockerhubN/front:latest"
                             withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'dockerhubN', 
                                           passwordVariable: 'dockerhubP')]) {
