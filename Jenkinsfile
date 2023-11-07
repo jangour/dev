@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
 
-        stage('Build Backend') {
+  /*      stage('Build Backend') {
             steps {
                 dir('back'){
                 sh 'mvn clean package'
@@ -50,15 +50,15 @@ pipeline {
                     }
                 }
             }
+*/
 
 
 
-
-   /*      stage('Build and Push Backend Image') {
+         stage('Build and Push Backend Image') {
              steps {
                   script {
                     dir('back') {
-                            sh "docker login -u achref5 -p achrefjang5"
+                            sh "docker login -u achref5 -p dckr_pat_M52sbD3ALAM3U8vnJJQGBMBWoCU"
                             // Build your Docker image
                             sh "docker build -t achref/devopsbackendproject:1.0 ."
                             // Push the image
@@ -66,7 +66,7 @@ pipeline {
                 }
             }
         }
-         }*/
+         }
 
 
 /*        stage('Unit Tests') {
