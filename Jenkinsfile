@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
 
-/*        stage('Build Backend') {
+        stage('Build Backend') {
             steps {
                 dir('back'){
                 sh 'mvn clean package'
@@ -30,7 +30,7 @@ pipeline {
              
             }
         }
-*/        
+        
 stage('Build Angular Frontend') {
         steps {
             script {
