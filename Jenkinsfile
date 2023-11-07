@@ -41,22 +41,23 @@ pipeline {
         stage('Deploy to Nexus') {
             steps {
                 dir('back'){
+                    //def nexusCredentials = credentials('2')
                 sh 'mvn deploy -DskipTests'
                     }        
                 }
             }        
 
 
-//        stage('SonarQube Analysis') {
- //           steps {
- //               dir('back') {
- //                      withSonarQubeEnv('sonarserver') {
- //                                     sh 'mvn sonar:sonar -Dsonar.java.binaries=target/classes'
- //           }
- //               }
+        stage('SonarQube Analysis') {
+            steps {
+                dir('back') {
+                       withSonarQubeEnv('sonarserver') {
+                                      sh 'mvn sonar:sonar -Dsonar.java.binaries=target/classes'
+            }
+                }
                
- //       }
- //       }
+       }
+       }
 
 
 
