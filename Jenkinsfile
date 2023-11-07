@@ -1,14 +1,5 @@
 pipeline {
     agent any
-
-        environment {
-        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'dockerhubN', 
-                                          passwordVariable: 'dockerhubP')]) {
-        sh "docker login -u $dockerhubN -p $dockerhubP"
-    // Now you can push Docker images to Docker Hub
-}
-
-    }
     stages {
 
     
@@ -71,6 +62,7 @@ pipeline {
         stage('Build and Push Docker Images') {
             steps {
                 script {
+                    
                     // Build and tag the Spring Boot backend image
                     sh "docker build -t your-dockerhub-username/back:latest -f Dockerfile ."
                     sh "docker push your-dockerhub-username/back:latest"
@@ -78,6 +70,11 @@ pipeline {
                     // Build and tag the Angular frontend image
                     sh "docker build -t dockerhubN/front:latest -f Dockerfile ."
                     sh "docker push dockerhubN/front:latest"
+                            withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'dockerhubN', 
+                                          passwordVariable: 'dockerhubP')]) {
+                            sh "docker login -u $dockerhubN -p $dockerhubP"
+                            // Now you can push Docker images to Docker Hub
+                        }
                 }
             }
         }
