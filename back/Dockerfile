@@ -5,7 +5,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/back.jar app.jar
+COPY target/DevOps_Project-1.0.jar DevOps_Project-1.0.jar
 
 # Expose the port your application listens on
 EXPOSE 8082
