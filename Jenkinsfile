@@ -21,7 +21,7 @@ pipeline {
         }
         }
 */
-        stage('Build Frontend') {
+    /*    stage('Build Frontend') {
             steps {
                 script {
                     dir('front') {
@@ -31,7 +31,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
 
   /*      stage('Deploy to Nexus') {
             steps {
