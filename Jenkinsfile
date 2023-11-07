@@ -64,15 +64,15 @@ pipeline {
                 script {
                     
                     // Build and tag the Spring Boot backend image
-                    sh "docker build -t dockerhubN/back:latest -f /back/Dockerfile ."
-                    sh "docker push dockerhubN/back:latest"
+                    sh "docker build -t dockerhubn/back:latest -f /back/Dockerfile ."
+                    sh "docker push dockerhubn/back:latest"
                     
                     // Build and tag the Angular frontend image
-                    sh "docker build -t dockerhubN/front:latest -f /front/Dockerfile ."
-                    sh "docker push dockerhubN/front:latest"
-                            withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'dockerhubN', 
-                                          passwordVariable: 'dockerhubP')]) {
-                            sh "docker login -u $dockerhubN -p $dockerhubP"
+                    sh "docker build -t dockerhubn/front:latest -f /front/Dockerfile ."
+                    sh "docker push dockerhubn/front:latest"
+                            withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'dockerhubn', 
+                                          passwordVariable: 'dockerhubp')]) {
+                            sh "docker login -u $dockerhubn -p $dockerhubp"
                             // Now you can push Docker images to Docker Hub
                         }
                 }
