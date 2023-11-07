@@ -58,7 +58,7 @@ pipeline {
              steps {
                   script {
                     dir('back') {
-                            sh "docker login -u achref5 -p dckr_pat_M52sbD3ALAM3U8vnJJQGBMBWoCU"
+                            sh "docker login -u achref5 -p dckr_pat_yVsCyVpZI_BjTQeM15RR3q6ZwpE"
                             // Build your Docker image
                             sh "docker build -t achref/devopsbackendproject:1.0 ."
                             // Push the image
