@@ -1,14 +1,7 @@
 # Use an official Java runtime as a parent image
-FROM openjdk:11-jre-slim
+//FROM openjdk:11-jre-slim
 
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the JAR file into the container
-COPY target/DevOps_Project-1.0.jar DevOps_Project-1.0.jar
-
-# Expose the port your application listens on
+FROM openjdk:8
 EXPOSE 8082
-
-# Define the command to run your application
-CMD ["java", "-jar", "app.jar"]
+ADD target/DevOps_Project-1.0.jar DevOps_Project-1.0.jar
+ENTRYPOINT ["java","-jar","/DevOps_Project-1.0.jar"]
