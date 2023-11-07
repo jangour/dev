@@ -53,12 +53,7 @@
         </dependency>
     </dependencies>
 
-<distributionManagement>
-    <repository>
-        <id></id>
-        <url>http://172.25.0.1:8081/repository/devback/</url>
-    </repository>
-</distributionManagement>
+
 
 
     <build>
@@ -77,5 +72,12 @@
             </plugin>
         </plugins>
     </build>
+
+         <distributionManagement>
+             <repository>
+                 <id>1</id>
+                 <url>http://172.25.0.1:8081/repository/devback/</url>
+             </repository>
+         </distributionManagement>         
 
 </project>
