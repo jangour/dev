@@ -31,38 +31,25 @@ pipeline {
             }
         }
         
-stage('Build Angular Frontend') {
-        steps {
-            script {
-                // Set the PATH to include the directory where npm and node are installed
-                def nodeBin = tool 'NodeJS' // Replace with the actual tool name
-                def nodePath = "${nodeBin}/bin"
-                env.PATH = "${nodePath}:${env.PATH}"
-        
-                // Navigate to the Angular project directory
-                dir('front') {
-                    // Install project dependencies
-                    sh 'npm install'
-        
-                    // Build the Angular application
-                    sh 'npm run build'
-                }
-            }
-        }
-    }
-
-
-    /*    stage('Build Frontend') {
-            steps {
-                script {
-                    dir('front') {
-                        
-                        sh 'npm install'
-                        sh 'ng build --prod'
+        stage('Build Angular Frontend') {
+                steps {
+                    script {
+                        // Set the PATH to include the directory where npm and node are installed
+                        def nodeBin = tool 'NodeJS' // Replace with the actual tool name
+                        def nodePath = "${nodeBin}/bin"
+                        env.PATH = "${nodePath}:${env.PATH}"
+                
+                        // Navigate to the Angular project directory
+                        dir('front') {
+                            // Install project dependencies
+                            sh 'npm install'
+                
+                            // Build the Angular application
+                            sh 'npm run build'
+                        }
                     }
                 }
             }
-        }*/
 
 
 
@@ -80,15 +67,6 @@ stage('Build Angular Frontend') {
             }
         }
          }*/
-
-
-
-
-    
-
-    
-
-
 
 
 /*        stage('Unit Tests') {
