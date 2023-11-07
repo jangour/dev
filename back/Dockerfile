@@ -5,10 +5,10 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/your-spring-boot-app.jar app.jar
+COPY target/back.jar app.jar
 
 # Expose the port your application listens on
-EXPOSE 8080
+EXPOSE 8082
 
 # Define the command to run your application
 CMD ["java", "-jar", "app.jar"]
