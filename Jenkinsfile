@@ -62,7 +62,7 @@ pipeline {
              steps {
                   script {
                     dir('back') {
-                            sh "docker login -u achref5 -p \$docker_cred"
+                            sh "docker login -u achref5 -p achrefjang5"
                             // Build your Docker image
                             sh "docker build -t achref/devopsbackendproject:1.0 ."
                             // Push the image
