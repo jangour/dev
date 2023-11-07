@@ -1,21 +1,16 @@
 pipeline {
     agent any
-
-//    environment {
-  //      docker_cred = credentials('docker_cred')
-  //  }
-
     stages {
 
     
         
-//        stage('Unit Tests') {
- //           steps {
+/*        stage('Unit Tests') {
+            steps {
                 
-   //             sh "mvn test"
-   //         }
-   //     }
-        
+                sh "mvn test"
+            }
+        }
+   */     
         
 
  /*       stage('Build Backend') {
@@ -25,20 +20,20 @@ pipeline {
             }
         }
         }
-
-    //    stage('Build Frontend') {
-     //       steps {
-        //        script {
-          //          dir('front') {
+*/
+        stage('Build Frontend') {
+            steps {
+                script {
+                    dir('front') {
                         
-           //             sh 'npm install'
-           //             sh 'ng build --prod'
-          //          }
-          //      }
-        //    }
-     //   }
+                        sh 'npm install'
+                        sh 'ng build --prod'
+                    }
+                }
+            }
+        }
 
-        stage('Deploy to Nexus') {
+  /*      stage('Deploy to Nexus') {
             steps {
                 dir('back'){
                     //def nexusCredentials = credentials('2')
@@ -48,7 +43,7 @@ pipeline {
             }        
 */
 
-        stage('SonarQube Analysis') {
+ /*       stage('SonarQube Analysis') {
              steps {
                 dir('back') {
                        withSonarQubeEnv('sonarserver') {
@@ -58,7 +53,7 @@ pipeline {
                
        }
        }
-
+*/
 
 
 
