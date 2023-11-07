@@ -68,6 +68,20 @@ pipeline {
         }
          }
 
+            stage('Build and Push Frontend Image') {
+             steps {
+                  script {
+                    dir('front') {
+                            sh "docker login -u achref5 -p dckr_pat_yVsCyVpZI_BjTQeM15RR3q6ZwpE"
+                            // Build your Docker image
+                            sh "docker build -t achref/devopsfrontendproject:1.0 ."
+                            // Push the image
+                            sh "docker push achref/devopsfrontendproject:1.0"
+                }
+            }
+        }
+    }        
+
 
 /*        stage('Unit Tests') {
             steps {
