@@ -16,14 +16,14 @@ pipeline {
    */     
         
 
- /*       stage('Build Backend') {
+        stage('Build Backend') {
             steps {
                 dir('back'){
                 sh 'mvn clean package'
             }
         }
         }
-*/
+
     /*    stage('Build Frontend') {
             steps {
                 script {
@@ -36,7 +36,7 @@ pipeline {
             }
         }*/
 
-  /*      stage('Deploy to Nexus') {
+        stage('Deploy to Nexus') {
             steps {
                 dir('back'){
                     //def nexusCredentials = credentials('2')
@@ -44,21 +44,10 @@ pipeline {
                     }        
                 }
             }        
-*/
 
- /*       stage('SonarQube Analysis') {
-             steps {
-                dir('back') {
-                       withSonarQubeEnv('sonarserver') {
-                                       sh 'mvn clean package sonar:sonar'
-            }
-                }
-               
-       }
-       }
-*/
 
-         stage('Build and Push Backend Image') {
+
+   /*      stage('Build and Push Backend Image') {
              steps {
                   script {
                     dir('back') {
@@ -70,7 +59,17 @@ pipeline {
                 }
             }
         }
-         }
+         }*/
+
+        stage('SonarQube Analysis') {
+            steps {
+                          dir('back') {
+                    // Use Maven to build the application
+                      sh 'mvn sonar:sonar -Dsonar.login=squ_cdf1e27b6ae375e378a47e6ef724dcfde408d870'
+                }
+             
+            }
+        }
 
 
     
