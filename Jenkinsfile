@@ -18,7 +18,7 @@ pipeline {
         
         
 
-        stage('Build Backend') {
+ /*       stage('Build Backend') {
             steps {
                 dir('back'){
                 sh 'mvn clean package'
@@ -46,13 +46,13 @@ pipeline {
                     }        
                 }
             }        
-
+*/
 
         stage('SonarQube Analysis') {
              steps {
                 dir('back') {
                        withSonarQubeEnv('sonarserver') {
-                                       sh 'mvn sonar:sonar -Dsonar.java.binaries=target/classes'
+                                       sh 'mvn clean package sonar:sonar'
             }
                 }
                
