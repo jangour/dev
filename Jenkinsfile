@@ -1,5 +1,8 @@
 pipeline {
     agent any
+        environment {
+        docker_cred = credentials('dockerhubn')
+    }
     stages {
 
     
@@ -55,29 +58,23 @@ pipeline {
        }
 */
 
-
-
-
-    
-        stage('Build and Push Docker Images') {
-            steps {
-                script {
-                    
-                    // Build and tag the Spring Boot backend image
-                    sh "docker build -t dockerhubn/back:latest -f back/Dockerfile"
-                    sh "docker push dockerhubn/back:latest"
-                    
-                    // Build and tag the Angular frontend image
-                    sh "docker build -t dockerhubn/front:latest -f front/Dockerfile"
-                    sh "docker push dockerhubn/front:latest"
-                            withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'dockerhubn', 
-                                          passwordVariable: 'dockerhubp')]) {
-                            sh "docker login -u $dockerhubn -p $dockerhubp"
-                            // Now you can push Docker images to Docker Hub
-                        }
+         stage('Build and Push Backend Image') {
+             steps {
+                  script {
+                    dir('back') {
+                            sh "docker login -u achrefouerghemmi5@gmail.com -p \$dockerhubn"
+                            // Build your Docker image
+                            sh "docker build -t achref/devopsbackendproject:1.0 ."
+                            // Push the image
+                            sh "docker push achref/devopsbackendproject:1.0"
                 }
             }
         }
+         }
+
+
+    
+
     
 
 
