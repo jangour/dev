@@ -7,6 +7,22 @@ pipeline {
 
     stages {
 
+        
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+//        stage('Unit Tests') {
+ //           steps {
+                
+   //             sh "mvn test"
+   //         }
+   //     }
+        
+        
+
         stage('Build Backend') {
             steps {
                 dir('back'){
@@ -14,7 +30,6 @@ pipeline {
             }
         }
         }
-
 
     //    stage('Build Frontend') {
      //       steps {
@@ -28,35 +43,31 @@ pipeline {
         //    }
      //   }
 
-        stage('Code Analysis') {
-            steps {
-                script {
-                    dir('back'){
-                    def scannerHome = tool name: 'SonarQubeScanner', type: 'Tool'
-                    withSonarQubeEnv('SonarQube') {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                        }
-                    }
-                }
-            }
-        }
-
-
-//        stage('Unit Tests') {
- //           steps {
-                
-   //             sh "mvn test"
-   //         }
-   //     }
-
-
         stage('Deploy to Nexus') {
             steps {
                 dir('back'){
                 sh 'mvn deploy -DskipTests'
                     }        
                 }
+            }        
+
+
+        stage('SonarQube Analysis') {
+            steps {
+                dir('back') {
+                       withSonarQubeEnv('sonarserver') {
+                                      sh 'mvn sonar:sonar -Dsonar.java.binaries=target/classes'
             }
+                }
+               
+        }
+        }
+
+
+
+
+
+
 
 
 
