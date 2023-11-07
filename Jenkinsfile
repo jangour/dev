@@ -54,7 +54,7 @@ pipeline {
 
 
 
-         stage('Build and Push Backend Image') {
+    /*     stage('Build and Push Backend Image') {
              steps {
                   script {
                     dir('back') {
@@ -67,6 +67,7 @@ pipeline {
             }
         }
          }
+         */
 
             stage('Build and Push Frontend Image') {
              steps {
