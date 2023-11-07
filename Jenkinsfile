@@ -41,7 +41,6 @@ pipeline {
         stage('Deploy to Nexus') {
             steps {
                 dir('back'){
-                    //def nexusCredentials = credentials('2')
                 sh 'mvn deploy -DskipTests'
                     }        
                 }
