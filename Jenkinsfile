@@ -48,16 +48,16 @@ pipeline {
             }        
 
 
-        stage('SonarQube Analysis') {
-            steps {
-                dir('back') {
-                       withSonarQubeEnv('sonarserver') {
-                                      sh 'mvn sonar:sonar -Dsonar.java.binaries=target/classes'
-            }
-                }
+//        stage('SonarQube Analysis') {
+//            steps {
+//                dir('back') {
+//                       withSonarQubeEnv('sonarserver') {
+//                                      sh 'mvn sonar:sonar -Dsonar.java.binaries=target/classes'
+//            }
+//                }
                
-       }
-       }
+//       }
+//       }
 
 
 
