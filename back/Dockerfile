@@ -1,6 +1,4 @@
 # Use an official Java runtime as a parent image
-//FROM openjdk:11-jre-slim
-
 FROM openjdk:8
 EXPOSE 8082
 ADD target/DevOps_Project-1.0.jar DevOps_Project-1.0.jar
