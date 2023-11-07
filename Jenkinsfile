@@ -1,5 +1,14 @@
 pipeline {
     agent any
+
+        environment {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'dockerhubN', 
+                                          passwordVariable: 'dockerhubP')]) {
+        sh "docker login -u $dockerhubN -p $dockerhubP"
+    // Now you can push Docker images to Docker Hub
+}
+
+    }
     stages {
 
     
@@ -67,8 +76,8 @@ pipeline {
                     sh "docker push your-dockerhub-username/back:latest"
                     
                     // Build and tag the Angular frontend image
-                    sh "docker build -t your-dockerhub-username/front:latest -f Dockerfile ."
-                    sh "docker push your-dockerhub-username/front:latest"
+                    sh "docker build -t dockerhubN/front:latest -f Dockerfile ."
+                    sh "docker push dockerhubN/front:latest"
                 }
             }
         }
