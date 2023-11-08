@@ -51,6 +51,13 @@ pipeline {
                 }
             }
 */
+        stage('Unit Tests') {
+            steps {
+                dir('back'){
+                        sh 'mvn test'
+                }
+            }
+        }        
 
 
 
