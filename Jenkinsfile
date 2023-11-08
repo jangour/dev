@@ -4,7 +4,7 @@ pipeline {
         docker_cred = credentials('dockerhub')
     }
     stages {
-        stage('Checkout') {
+      /*  stage('Checkout') {
             steps {
                 checkout scm
             }
@@ -71,23 +71,23 @@ pipeline {
             }
         }
 
-
-   /*      stage('Build and Push Backend Image') {
+*/
+         stage('Build and Push Backend Image') {
              steps {
                   script {
                     dir('back') {
                             sh "docker login -u achref5 -p dckr_pat_yVsCyVpZI_BjTQeM15RR3q6ZwpE"
                             // Build your Docker image
-                            sh "docker build -t achref/devopsbackendproject:1.0 ."
+                            sh "docker build -t achref5/devopsbackendproject:1.0 ."
                             // Push the image
-                            sh "docker push achref/devopsbackendproject:1.0"
+                            sh "docker push achref5/devopsbackendproject:1.0"
                 }
             }
         }
          }
          
 
-            stage('Build and Push Frontend Image') {
+     /*       stage('Build and Push Frontend Image') {
              steps {
                   script {
                     dir('front') {
