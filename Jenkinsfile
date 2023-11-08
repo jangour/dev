@@ -4,7 +4,7 @@ pipeline {
         docker_cred = credentials('dockerhub')
     }
     stages {
-      /*  stage('Checkout') {
+        stage('Checkout') {
             steps {
                 checkout scm
             }
@@ -71,7 +71,7 @@ pipeline {
             }
         }
 
-*/
+/*
          stage('Build and Push Backend Image') {
              steps {
                   script {
@@ -87,7 +87,7 @@ pipeline {
          }
          
 
-     /*       stage('Build and Push Frontend Image') {
+            stage('Build and Push Frontend Image') {
              steps {
                   script {
                     dir('front') {
