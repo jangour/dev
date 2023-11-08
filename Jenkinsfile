@@ -10,7 +10,7 @@ pipeline {
             }
         }        
 
-  /*      stage('Build Backend') {
+        stage('Build Backend') {
             steps {
                 dir('back'){
                 sh 'mvn clean package'
@@ -55,7 +55,7 @@ pipeline {
                     }
                 }
             }
-*/
+
         stage('Unit Tests') {
             steps {
                 dir('back'){
@@ -66,7 +66,7 @@ pipeline {
 
 
 
-         stage('Build and Push Backend Image') {
+   /*      stage('Build and Push Backend Image') {
              steps {
                   script {
                     dir('back') {
@@ -93,8 +93,14 @@ pipeline {
                 }
             }
         }
-    }        
-
+    } */
+        
+            stage('Grafana/prometheus') {
+             steps {
+                sh 'docker start dd29d9fc93de'
+                sh 'docker start 825d86020d9d'
+            }
+        }
 
     }
 }
