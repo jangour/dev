@@ -63,7 +63,13 @@ pipeline {
                 }
             }
         }        
-
+        
+        stage('Grafana/prometheus') {
+             steps {
+                sh 'docker start dd29d9fc93de'
+                sh 'docker start 825d86020d9d'
+            }
+        }
 
 
    /*      stage('Build and Push Backend Image') {
@@ -95,12 +101,7 @@ pipeline {
         }
     } */
         
-            stage('Grafana/prometheus') {
-             steps {
-                sh 'docker start dd29d9fc93de'
-                sh 'docker start 825d86020d9d'
-            }
-        }
+
 
     }
 }
